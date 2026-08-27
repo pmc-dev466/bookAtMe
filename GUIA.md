@@ -46,7 +46,8 @@ mano ahí se pierde.
 
 ## Editar en caliente
 
-Doble clic en **`desarrollo.bat`** y deja la ventana abierta. Mientras esté:
+Doble clic en **`BookAtMe.bat`** y elige **1 · TRABAJAR**. Deja la ventana
+abierta. Mientras lo esté:
 
 - la web se ve en `http://localhost:8777`
 - al guardar cualquier archivo **se reconstruye sola**
@@ -54,12 +55,11 @@ Doble clic en **`desarrollo.bat`** y deja la ventana abierta. Mientras esté:
 
 Guardas, miras la pantalla, ya está. No hace falta ejecutar nada más.
 
-`actualizar.bat` sigue existiendo para cuando solo quieras reconstruir y
-comprobar de una pasada, sin dejar nada abierto.
+Para volver al menú, Ctrl+C.
 
 > **Si ves la página de error fea de Python** («Error response / Error code:
 > 404»), es que tienes abierto un servidor viejo de antes. Cierra todas las
-> ventanas negras y vuelve a abrir `desarrollo.bat`.
+> ventanas negras y vuelve a abrir `BookAtMe.bat`.
 
 ---
 
@@ -92,7 +92,7 @@ JavaScript e imágenes, y nada más.
 "pros": ["Se lee en dos tardes", "El giro final sorprende de verdad"],
 ```
 
-4. Guarda. Si tienes `desarrollo.bat` abierto, ya está.
+4. Guarda. Si tienes `BookAtMe.bat` abierto en modo trabajar, ya está.
 
 ### Cambiar las notas de los seis ejes
 
@@ -181,6 +181,55 @@ Cuando publiques:
 
 ---
 
+## Mantener la web al día
+
+Hay **dos** trabajos distintos y conviene no confundirlos.
+
+### 1 · Refrescar los datos de Amazon — esto lo hago yo
+
+Precios, valoraciones, número de opiniones y puesto de ventas cambian solos, y
+**no hay forma de que los recapture tú a día de hoy**. Amazon bloquea los
+programas que le piden páginas sin un navegador de verdad detrás; el extractor
+que traía la plantilla ni siquiera arranca en tu ordenador.
+
+Cuando quieras precios frescos, **pídemelo**. Los saco uno a uno con el
+navegador, actualizo `datos/libros.json` con la fecha nueva y recalculo las
+notas de calidad-precio, que son relativas al catálogo.
+
+Cada cuánto tiene sentido: **una vez al mes** basta. Un precio de hace tres
+semanas etiquetado con su fecha es honesto; uno de hace seis meses ya engaña.
+
+> **Cuando Amazon te apruebe como afiliado y hagas tus primeras ventas**, tendrás
+> acceso a su API oficial (PA-API). Ahí sí se puede automatizar del todo: un
+> programa que refresca los 24 libros solo, legal y sin bloqueos. Ese es el
+> objetivo; hasta entonces, a mano.
+
+### 2 · Publicar lo que ya tienes — esto lo haces tú
+
+Doble clic en **`BookAtMe.bat`** y elige **2 · PUBLICAR**. Hace todo en orden:
+
+1. dibuja las miniaturas de compartir
+2. reconstruye las páginas
+3. **comprueba que nada quedó roto** — si falla, se para aquí y no publica
+4. te enseña lo que va a cambiar y **pregunta antes de subir**
+5. lo sube a GitHub
+
+Cloudflare detecta el cambio sola y republica en un par de minutos.
+
+Sirve para cualquier cambio tuyo: un contra que has reescrito, un color, un
+texto del menú. Si no hay nada que publicar, te lo dice y no hace nada.
+
+### La rutina completa, de principio a fin
+
+| Cuándo | Qué |
+|---|---|
+| Mientras trabajas | `BookAtMe.bat` → **1**: guardas y lo ves al instante |
+| Cuando te gusta como está | `BookAtMe.bat` → **2**, confirmas, y en dos minutos está en la web |
+| Una vez al mes | Me pides que refresque los precios, y luego `BookAtMe.bat` → **2** |
+| Al añadir libros | Me lo pides: hay que capturar, escribir la ficha y recalcular notas |
+
+---
+
 ## Inventario de archivos
 
 ### Se edita a mano
@@ -207,12 +256,15 @@ Cuando publiques:
 | `generar_madera.py` | Las texturas de madera de la estantería 3D. |
 | `empaquetar_preview.py` | La web entera en un solo archivo, para enseñarla. |
 
-### Los dos botones
+### El único botón
 
 | Archivo | Para qué |
 |---|---|
-| `desarrollo.bat` | **El del día a día.** Editar en caliente. Deja la ventana abierta. |
-| `actualizar.bat` | Reconstruir y comprobar de una pasada, sin dejar nada abierto. |
+| `BookAtMe.bat` | **Lo único que necesitas.** Doble clic y elige: trabajar, publicar o comprobar. |
+
+Antes había tres `.bat` distintos (`desarrollo`, `publicar`, `actualizar`) y era
+un lío. Ahora es uno con menú.
+
 
 ### Generado · no se toca
 
@@ -240,12 +292,12 @@ Cuando publiques:
 
 ## Si algo se rompe
 
-1. Mira la ventana de `desarrollo.bat`: si algo falló al construir, lo dice ahí.
-2. O ejecuta `actualizar.bat`. Si acaba en **LISTO**, la web está bien.
+1. Mira la ventana de `BookAtMe.bat`: si algo falló al construir, lo dice ahí.
+2. O elige **3 · COMPROBAR** en `BookAtMe.bat`.
 3. Si editaste el JSON y ahora falla, casi seguro es una **coma de más o de
    menos**. Cada dato lleva coma detrás, menos el último de cada bloque.
 4. Si ves la página de error de Python: tienes un servidor viejo abierto.
-   Cierra las ventanas negras y vuelve a abrir `desarrollo.bat`.
+   Cierra las ventanas negras y vuelve a abrir `BookAtMe.bat`.
 
 ---
 

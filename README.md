@@ -26,7 +26,7 @@ si tiene descuento, **y la estantería en 3D**. No hay que tocar nada más.
 
 ### Reconstruir la web: un solo archivo
 
-Doble clic en **`actualizar.bat`**, o desde la terminal:
+Doble clic en **`BookAtMe.bat`** y elige una opcion del menu. O desde la terminal:
 
 ```bash
 .ctualizar.bat
