@@ -11,14 +11,34 @@ y volver a ejecutar este script.
 Sube VER en cada ejecucion (ya lo hace solo con la fecha de hoy) para que el
 navegador no sirva CSS/JS antiguos.
 """
-import json, os, re, html, math, datetime, shutil, sys, time, io
+import json, os, re, html, math, datetime, shutil, sys, time, io, hashlib
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATOS = os.path.join(BASE, "datos", "libros.json")
-# Lleva la hora y el minuto a propósito: con solo la fecha, dos reconstrucciones del
-# mismo día comparten ?v= y el navegador sigue sirviendo el CSS viejo de la caché.
-# Eso hace perder horas persiguiendo fallos que ya estaban arreglados.
-VER = datetime.datetime.now().strftime("%Y%m%d-%H%M")
+def _version():
+    """La marca ?v= que se le pone al CSS y al JS para que el navegador no
+    sirva versiones viejas de su cache.
+
+    Antes era la fecha y la hora. Eso tenia un efecto secundario malisimo:
+    CADA reconstruccion cambiaba las 41 paginas aunque no se hubiera tocado
+    nada, y `git status` se llenaba de 41 archivos modificados que tapaban el
+    cambio de verdad.
+
+    Ahora es una huella del contenido de los archivos que de verdad importan.
+    Si no cambia nada, sale la misma marca y las paginas quedan identicas: git
+    se queda limpio. Si cambia el CSS, el JS o los datos, cambia sola y el
+    navegador coge lo nuevo, que es para lo que estaba."""
+    h = hashlib.sha1()
+    for rel in ("styles.css", "main.js",
+                os.path.join("lib", "estanteria3d.js"),
+                os.path.join("datos", "libros.json")):
+        ruta = os.path.join(BASE, rel)
+        if os.path.exists(ruta):
+            with open(ruta, "rb") as f:
+                h.update(f.read())
+    return h.hexdigest()[:10]
+
+VER = _version()
 SITIO = "BookAtMe!"
 # Cuantos libros salen en la estanteria 3D. El resto del catalogo vive en las
 # paginas normales: con mas de 10 la balda va lenta y no se distingue nada.
