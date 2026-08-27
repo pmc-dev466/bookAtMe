@@ -29,9 +29,12 @@ def _version():
     se queda limpio. Si cambia el CSS, el JS o los datos, cambia sola y el
     navegador coge lo nuevo, que es para lo que estaba."""
     h = hashlib.sha1()
+    # Los datos NO entran aqui a proposito: si entraran, cambiar un solo precio
+    # cambiaria la marca y con ella las 41 paginas, aunque 35 de ellas no
+    # muestren ese libro. Y no hace falta: _headers ya le dice al navegador que
+    # revalide el CSS y el JS en cada visita, asi que no se queda nada viejo.
     for rel in ("styles.css", "main.js",
-                os.path.join("lib", "estanteria3d.js"),
-                os.path.join("datos", "libros.json")):
+                os.path.join("lib", "estanteria3d.js")):
         ruta = os.path.join(BASE, rel)
         if os.path.exists(ruta):
             with open(ruta, "rb") as f:
