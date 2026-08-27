@@ -1,0 +1,25 @@
+{
+  "name": "BookAtMe! · comparativas de libros",
+  "short_name": "BookAtMe!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F4F0",
+  "theme_color": "#14161C",
+  "icons": [
+    {
+      "src": "/assets/icono-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

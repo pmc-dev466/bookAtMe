@@ -1,0 +1,78 @@
+{
+  "nicho": "libros",
+  "marketplace": "amazon.es",
+  "moneda": "EUR",
+  "version": 1,
+  "descripcion": "Contrato de datos de una ficha de libro. El generador (tools/build_site.py) lee datos/libros.json y solo entiende estos campos.",
+
+  "grupo_a_identidad": {
+    "id":            { "tipo": "slug",  "requerido": true, "nota": "kebab-case, estable, da nombre a la ficha y a las imagenes" },
+    "asin":          { "tipo": "texto", "requerido": true },
+    "titulo":        { "tipo": "texto", "requerido": true },
+    "subtitulo":     { "tipo": "texto|null" },
+    "autor":         { "tipo": "texto", "requerido": true },
+    "traductor":     { "tipo": "texto|null" },
+    "saga":          { "tipo": "texto|null" },
+    "num_en_saga":   { "tipo": "entero|null" },
+    "categoria":     { "tipo": "enum", "valores": ["amor","suspense","drama","comedia","filosofia","fantasia"], "requerido": true },
+    "etiquetas":     { "tipo": "lista<texto>" },
+    "affiliate_url": { "tipo": "url",   "requerido": true, "nota": "ENLACE DEL USUARIO, VERBATIM. Nunca reescribir ni quitar el tag." },
+    "affiliate_tag": { "tipo": "texto", "requerido": true },
+    "canonical_url": { "tipo": "url" },
+    "imagenes":      { "tipo": "lista<ruta>", "nota": "assets/img/<id>-N.webp, descargadas y convertidas, nunca hotlink a Amazon. OJO: el orden en que las sirve Amazon NO es fiable, a veces la primera es la contraportada. La posicion 0 DEBE ser la portada: hay que mirar cada imagen y reordenar la lista si hace falta. Todo el sitio (tarjetas, ficha, comparador, estanteria 3D) da por hecho que imagenes[0] es la portada" },
+    "contraportada": { "tipo": "ruta|null", "nota": "La contraportada de verdad, si Amazon la publica. Solo la usa el reverso del libro en la estanteria 3D; si es null se dibuja uno de tela con los datos del libro" },
+    "isFeatured":    { "tipo": "bool" },
+    "puesto_ventas": { "tipo": "entero|null", "nota": "El puesto en la lista de mas vendidos de Amazon.es que aparece en la ficha del producto (\"Clasificacion en los mas vendidos: n.o 42 en Libros\"). Cuanto MENOR, mas vendido. Decide que 10 libros salen en la estanteria 3D. Si es null, ese libro va al final del orden. NO se inventa: si Amazon no lo publica, va null" }
+  },
+
+  "grupo_b_comercial": {
+    "precio":            { "tipo": "decimal|null", "unidad": "EUR" },
+    "precio_lista":      { "tipo": "decimal|null", "unidad": "EUR", "nota": "PVP; si es mayor que precio, el libro entra en Ofertas" },
+    "rango_precio":      { "tipo": "enum", "valores": ["bajo","medio","alto"], "nota": "calculado sobre el catalogo" },
+    "valoracion_media":  { "tipo": "decimal|null", "unidad": "estrellas 0-5" },
+    "resenas_cantidad":  { "tipo": "entero|null" },
+    "precio_fecha":      { "tipo": "fecha", "nota": "los precios son una foto del dia de la captura, nunca en vivo" }
+  },
+
+  "grupo_c_ficha_tecnica": {
+    "formato":            { "tipo": "enum", "valores": ["tapa dura","tapa blanda","bolsillo"] },
+    "num_paginas":        { "tipo": "entero|null", "mejor": "ninguno" },
+    "editorial":          { "tipo": "texto|null" },
+    "idioma":             { "tipo": "texto|null" },
+    "idioma_original":    { "tipo": "texto|null" },
+    "fecha_publicacion":  { "tipo": "texto|null" },
+    "anio":               { "tipo": "entero|null" },
+    "isbn_10":            { "tipo": "texto|null" },
+    "isbn_13":            { "tipo": "texto|null" },
+    "dimensiones_cm":     { "tipo": "texto|null" },
+    "peso_g":             { "tipo": "entero|null", "mejor": "min", "nota": "menos peso = mas comodo de llevar" },
+    "edad_recomendada":   { "tipo": "texto|null" },
+    "horas_lectura":      { "tipo": "decimal|null", "nota": "ESTIMADO: num_paginas / 55 paginas-hora. Se marca como estimacion en la ficha." },
+    "disponible_kindle":  { "tipo": "bool|null" },
+    "disponible_audiolibro": { "tipo": "bool|null" },
+    "specs_extra":        { "tipo": "objeto<texto,texto>", "nota": "datos reales que no encajan en ningun campo tipado; jamas forzar a numero" }
+  },
+
+  "grupo_d_valoracion_editor": {
+    "nota": "0-10. Son juicio editorial, NO datos de Amazon. Siempre etiquetados como tal en la web.",
+    "ejes": {
+      "score_ritmo":          "Cuanto engancha y a que velocidad avanza. Se apoya en resenas y en la estructura del libro.",
+      "score_personajes":     "Profundidad y memorabilidad de los personajes.",
+      "score_profundidad":    "Carga emocional o intelectual, poso que deja.",
+      "score_originalidad":   "Cuanto se aparta de lo ya leido en su genero.",
+      "score_facilidad":      "Accesibilidad de la prosa: 10 = se lee solo, 0 = exige esfuerzo.",
+      "score_calidad_precio": "CALCULADO: 60% precio por cada 100 paginas (invertido y normalizado al catalogo) + 40% valoracion media normalizada en el rango 4,0-5,0 estrellas. Se recalcula al anadir libros."
+    }
+  },
+
+  "grupo_e_editorial": {
+    "descripcion":         { "tipo": "texto", "nota": "2-4 frases, resumen propio" },
+    "cuerpo_editorial":    { "tipo": "html",  "nota": "parrafos de analisis, escritos desde la sinopsis y las resenas reales" },
+    "pros":                { "tipo": "lista<texto>" },
+    "contras":             { "tipo": "lista<texto>" },
+    "ideal_para":          { "tipo": "texto" },
+    "destacado_editorial": { "tipo": "texto|null" },
+    "resenas_resumen":     { "tipo": "texto", "nota": "sintesis de las resenas REALES recogidas, nunca inventadas" },
+    "resenas":             { "tipo": "lista<{autor,estrellas,titulo,fecha,texto,formato}>", "nota": "resenas publicas de Amazon.es, citadas tal cual" }
+  }
+}

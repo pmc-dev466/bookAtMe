@@ -1,0 +1,45 @@
+# Cabeceras HTTP para Cloudflare Pages.
+#
+# Cloudflare lo lee solo:
+# tiene que estar en la raiz de lo que se publica y llamarse exactamente
+# "_headers", sin extension.
+#
+# El orden importa: gana la regla MAS ESPECIFICA que coincida.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# El HTML nunca se cachea: si no, al publicar un cambio la gente sigue viendo
+# lo viejo durante horas.
+/
+  Cache-Control: no-cache, must-revalidate
+
+/*.html
+  Cache-Control: no-cache, must-revalidate
+
+/*.css
+  Cache-Control: no-cache, must-revalidate
+
+/*.js
+  Cache-Control: no-cache, must-revalidate
+
+/*.webmanifest
+  Cache-Control: no-cache, must-revalidate
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+# La libreria 3D no cambia nunca: un ano de cache.
+/lib/three/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Portadas y miniaturas: un mes.
+/assets/*
+  Cache-Control: public, max-age=2592000

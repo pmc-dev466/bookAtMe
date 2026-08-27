@@ -1,0 +1,24 @@
+# Los finales de línea, siempre iguales.
+#
+# Windows y Linux marcan el final de línea de forma distinta. Sin esto,
+# Git puede cambiarlos al subir o al bajar y de repente "todos los
+# archivos han cambiado" sin que nadie haya tocado nada. Peor: los .py
+# y los .sh pueden dejar de funcionar en el servidor de Cloudflare.
+#
+# Con esto, en el repositorio todo se guarda con finales de línea de
+# Linux (LF), que es lo que espera Cloudflare.
+
+* text=auto eol=lf
+
+# Los .bat son de Windows y necesitan finales de línea de Windows,
+# o cmd.exe se atraganta.
+*.bat text eol=crlf
+
+# Binarios: que Git no toque nada dentro.
+*.webp  binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary

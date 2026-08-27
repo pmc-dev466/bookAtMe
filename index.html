@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+   ARCHIVO GENERADO - NO LO EDITES.
+
+   Este archivo lo escribe tools/build_site.py y se sobrescribe ENTERO cada
+   vez que se reconstruye la web. Cualquier cambio que hagas aqui se pierde.
+
+   Lo que buscas esta en:
+     datos/libros.json     los libros: pros, contras, descripciones, notas
+     styles.css            colores, tamanos, margenes
+     tools/build_site.py   los textos que salen en todas las paginas
+
+   Y luego doble clic en actualizar.bat (o deja abierto desarrollo.bat).
+  ==========================================================================
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookAtMe! · Comparativa de los libros más vendidos en Amazon España 2026</title>
+<meta name="description" content="Comparamos los 24 libros más vendidos en Amazon.es: ficha técnica completa, gráfico de valoración, pros y contras y un comparador para verlos lado a lado.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BookAtMe! · Comparativa de los libros más vendidos en Amazon España 2026">
+<meta property="og:description" content="Comparamos los 24 libros más vendidos en Amazon.es: ficha técnica completa, gráfico de valoración, pros y contras y un comparador para verlos lado a lado.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="BookAtMe!">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bookatme.pages.dev/">
+<meta property="og:url" content="https://bookatme.pages.dev/">
+<meta property="og:image" content="https://bookatme.pages.dev/assets/og/bookatme.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://bookatme.pages.dev/assets/og/bookatme.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Las tipografias no bloquean el pintado: se cargan como hoja de impresion
+     y pasan a valer para pantalla al terminar. Antes, si fonts.googleapis.com iba
+     lento, la web entera se quedaba en blanco esperando a un servidor ajeno.
+     Con display=swap el texto se ve desde el primer momento con la del sistema. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;;this.onload=null" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icono-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#14161C">
+<link rel="stylesheet" href="styles.css?v=20260827-1727">
+<script>document.documentElement.className+=" js";</script>
+
+</head>
+<body>
+<a class="skip-link" href="#main">Ir al contenido</a>
+<div class="aff-bar">Como afiliados de Amazon, ganamos una comisión por las compras que cumplen los requisitos. Para ti el precio es el mismo. <a href="aviso-afiliados.html">Más información</a>.</div>
+<header class="site-head" data-head>
+  <div class="wrap head-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">Book<span>At</span>Me<em>!</em></span>
+      <span class="brand-tag">Comparativas de libros</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="estanteria.html">Estantería</a>
+      <a href="guia-mejor-libro-para-desconectar-2026.html">Guías</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="como-elegimos.html">Cómo elegimos</a>
+      <a class="nav-cta" href="comparador.html">Comparador<span class="nav-cta-count" data-cmp-count>0</span></a>
+    </nav>
+    <button class="btn-guia" type="button" data-guia-abrir aria-label="Ver la guía de la web" title="Ver la guía de la web"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M7.9 7.6a2.2 2.2 0 013.9 1.2c0 1.5-2 1.6-2 2.9"/><path d="M9.8 14.4h.02"/></svg></button>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer" data-nav-drawer>
+    <a href="index.html">Inicio</a>
+    <a href="estanteria.html">La estantería en 3D</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="ofertas.html">Ofertas</a>
+    <a href="guia-mejor-libro-para-desconectar-2026.html">Guías de compra</a>
+    <div class="drawer-label">Por género</div>
+    <a href="#" data-guia-abrir>Ver la guía de la web</a>
+    <div class="drawer-label">La casa</div>
+    <a href="categoria-amor.html">Amor</a><a href="categoria-suspense.html">Suspense</a><a href="categoria-drama.html">Drama</a><a href="categoria-comedia.html">Comedia</a><a href="categoria-filosofia.html">Filosofía</a><a href="categoria-fantasia.html">Fantasía</a><a href="categoria-pasatiempos.html">Pasatiempos</a><a href="como-elegimos.html">Cómo elegimos</a>
+    <a href="aviso-afiliados.html">Aviso de afiliados</a>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Los 24 libros más vendidos ahora en Amazon.es</span>
+      <h1>No te decimos qué leer.<br>Te enseñamos <em>en qué se diferencian</em>.</h1>
+      <p class="lead hero-lead">Cada libro con su ficha técnica completa, su gráfico de valoración, sus pros y sus contras. Y un comparador para ponerlos cara a cara y decidir tú.</p>
+      <div class="hero-actions">
+        <a class="btn btn-buy" href="comparador.html">Abrir el comparador</a>
+        <a class="btn btn-ghost" href="#destacados">Ver los libros</a>
+      </div>
+      <div class="hero-facts">
+        <div class="hero-fact"><strong>24</strong><span>libros analizados</span></div>
+        <div class="hero-fact"><strong>7</strong><span>géneros</span></div>
+        <div class="hero-fact"><strong>225.423</strong><span>reseñas de compradores</span></div>
+      </div>
+    </div>
+    <div class="shelf" data-reveal>
+      <div class="shelf-books"><a href="libro-la-asistenta.html" aria-label="La asistenta"><span class="cover"><img src="assets/img/la-asistenta-1.webp" alt="Portada de La asistenta" fetchpriority="high" width="300" height="450"></span></a><a href="libro-la-paciente-silenciosa.html" aria-label="La paciente silenciosa"><span class="cover"><img src="assets/img/la-paciente-silenciosa-1.webp" alt="Portada de La paciente silenciosa" loading="lazy" width="300" height="450"></span></a><a href="libro-alas-de-sangre.html" aria-label="Alas de sangre"><span class="cover"><img src="assets/img/alas-de-sangre-1.webp" alt="Portada de Alas de sangre" loading="lazy" width="300" height="450"></span></a><a href="libro-la-biblioteca-de-la-medianoche.html" aria-label="La Biblioteca de la Medianoche"><span class="cover"><img src="assets/img/la-biblioteca-de-la-medianoche-1.webp" alt="Portada de La Biblioteca de la Medianoche" loading="lazy" width="300" height="450"></span></a><a href="libro-llevara-tu-nombre.html" aria-label="Llevará tu nombre"><span class="cover"><img src="assets/img/llevara-tu-nombre-2.webp" alt="Portada de Llevará tu nombre" loading="lazy" width="300" height="450"></span></a></div>
+      <div class="shelf-plank"></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust section" style="padding-block:clamp(2.2rem,5vw,3.4rem)" aria-labelledby="por-que-fiarte">
+  <div class="wrap">
+    <!-- Encabezado solo para lectores de pantalla: el diseno no lo pide, pero sin
+         el la portada saltaba de h1 a h3 y el indice de la pagina quedaba roto. -->
+    <h2 id="por-que-fiarte" class="sr-only">Por que fiarte de esta comparativa</h2>
+  </div>
+  <div class="wrap trust-grid">
+    <div class="trust-item"><h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.7 10S4.6 5 10 5s8.3 5 8.3 5-2.9 5-8.3 5-8.3-5-8.3-5z"/><circle cx="10" cy="10" r="2.2"/></svg>Datos reales, no copiados</h3><p>Precio, valoración, páginas, editorial, ISBN y medidas salen de la ficha del libro en Amazon.es. Si Amazon no publica un dato, aquí verás “—”: no lo inventamos.</p></div>
+    <div class="trust-item"><h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5l1.8 4.7 4.7 1.8-4.7 1.8L10 15.5 8.2 10.8 3.5 9l4.7-1.8L10 2.5z"/></svg>Seis ejes, siempre los mismos</h3><p>Ritmo, personajes, profundidad, originalidad, facilidad y calidad-precio. Es opinión nuestra y va etiquetada como tal, pero se aplica igual a todos.</p></div>
+    <div class="trust-item"><h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4v13M5 17h10M4 8l3-4 3 4M13 10l3-4 3 4"/></svg>También decimos lo malo</h3><p>Cada ficha lleva sus contras. Ganamos comisión si compras, y por eso mismo nos interesa que no devuelvas el libro.</p></div>
+  </div>
+</section>
+
+<section class="section" id="destacados">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">La selección</span>
+      <h2>Los destacados de este mes</h2>
+      <p>Los que mejor nota sacan en nuestro análisis entre los más vendidos ahora mismo.</p>
+    </div>
+    <div class="book-grid"><article class="book-card" data-book="la-asistenta" data-formato="tapa blanda" data-reveal>
+  <a href="libro-la-asistenta.html" aria-label="Ver la ficha de La asistenta"><span class="cover"><img src="assets/img/la-asistenta-1.webp" alt="Portada de La asistenta, de Freida McFadden" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Suspense</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-asistenta.html">La asistenta</a></h3>
+  <p class="author">Freida McFadden</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:86.0%"></b></span><span>4,3</span><span class="stars-count">(27.473)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">18,90 €</span><span class="price-was">19,90 €</span></span><span class="badge badge-cat">344 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8491294287?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-asistenta" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-paciente-silenciosa" data-formato="bolsillo" data-reveal>
+  <a href="libro-la-paciente-silenciosa.html" aria-label="Ver la ficha de La paciente silenciosa"><span class="cover"><img src="assets/img/la-paciente-silenciosa-1.webp" alt="Portada de La paciente silenciosa, de Alex Michaelides" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Suspense</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-paciente-silenciosa.html">La paciente silenciosa</a></h3>
+  <p class="author">Alex Michaelides</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:84.0%"></b></span><span>4,2</span><span class="stars-count">(23.617)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,35 €</span><span class="price-was">11,95 €</span></span><span class="badge badge-cat">400 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8466351930?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-paciente-silenciosa" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="alas-de-sangre" data-formato="tapa dura" data-reveal>
+  <a href="libro-alas-de-sangre.html" aria-label="Ver la ficha de Alas de sangre"><span class="cover"><img src="assets/img/alas-de-sangre-1.webp" alt="Portada de Alas de sangre, de Rebecca Yarros" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Fantasía</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-alas-de-sangre.html">Alas de sangre</a></h3>
+  <p class="author">Rebecca Yarros</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:94.0%"></b></span><span>4,7</span><span class="stars-count">(9.862)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">21,00 €</span></span><span class="badge badge-cat">736 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8408279998?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="alas-de-sangre" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-biblioteca-de-la-medianoche" data-formato="tapa dura" data-reveal>
+  <a href="libro-la-biblioteca-de-la-medianoche.html" aria-label="Ver la ficha de La Biblioteca de la Medianoche"><span class="cover"><img src="assets/img/la-biblioteca-de-la-medianoche-1.webp" alt="Portada de La Biblioteca de la Medianoche, de Matt Haig" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Filosofía</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-biblioteca-de-la-medianoche.html">La Biblioteca de la Medianoche</a></h3>
+  <p class="author">Matt Haig</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:86.0%"></b></span><span>4,3</span><span class="stars-count">(19.663)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,87 €</span><span class="price-was">12,50 €</span></span><span class="badge badge-cat">380 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8410138409?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-biblioteca-de-la-medianoche" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="llevara-tu-nombre" data-formato="tapa dura" data-reveal>
+  <a href="libro-llevara-tu-nombre.html" aria-label="Ver la ficha de Llevará tu nombre"><span class="cover"><img src="assets/img/llevara-tu-nombre-2.webp" alt="Portada de Llevará tu nombre, de Sonsoles Ónega" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Amor</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-llevara-tu-nombre.html">Llevará tu nombre</a></h3>
+  <p class="author">Sonsoles Ónega</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:84.0%"></b></span><span>4,2</span><span class="stars-count">(4.445)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">22,70 €</span><span class="price-was">23,90 €</span></span><span class="badge badge-cat">488 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8408315242?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="llevara-tu-nombre" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Por género</span><h2>¿Qué te apetece leer?</h2></div>
+    <div class="cat-grid"><a class="cat-card" href="categoria-amor.html" data-reveal>
+      <h3>Amor</h3><p>Historias donde el motor es el vínculo entre dos personas: del romance histórico al…</p><span class="n">3 libros comparados →</span></a><a class="cat-card" href="categoria-suspense.html" data-reveal>
+      <h3>Suspense</h3><p>Novelas construidas para que no puedas parar. Lo que separa a un buen thriller de uno olvidable…</p><span class="n">5 libros comparados →</span></a><a class="cat-card" href="categoria-drama.html" data-reveal>
+      <h3>Drama</h3><p>Literatura que se lee despacio y deja poso. Menos giros, más personajes: aquí premiamos la…</p><span class="n">4 libros comparados →</span></a><a class="cat-card" href="categoria-comedia.html" data-reveal>
+      <h3>Comedia</h3><p>Libros para reírse y salir de mejor humor. Ojo: comedia no significa superficial, varios de…</p><span class="n">2 libros comparados →</span></a><a class="cat-card" href="categoria-filosofia.html" data-reveal>
+      <h3>Filosofía</h3><p>Libros que se hacen preguntas grandes sin volverse ilegibles. Son los que más se releen y los…</p><span class="n">2 libros comparados →</span></a><a class="cat-card" href="categoria-fantasia.html" data-reveal>
+      <h3>Fantasía</h3><p>Mundos propios, sagas largas y una comunidad de lectores enorme. Aquí el número de páginas y el…</p><span class="n">4 libros comparados →</span></a><a class="cat-card" href="categoria-pasatiempos.html" data-reveal>
+      <h3>Pasatiempos</h3><p>Los cuatro libros más vendidos de Amazon.es no son novelas: son cuadernos de acertijos con…</p><span class="n">4 libros comparados →</span></a></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Ranking</span><h2>Mejor valorados por nosotros</h2>
+    <p>Ordenados por la nota media de los seis ejes. Es nuestra opinión, no la de Amazon.</p></div>
+    <div class="book-grid"><article class="book-card" data-book="proyecto-hail-mary" data-formato="bolsillo" data-reveal>
+  <a href="libro-proyecto-hail-mary.html" aria-label="Ver la ficha de Proyecto Hail Mary"><span class="cover"><img src="assets/img/proyecto-hail-mary-1.webp" alt="Portada de Proyecto Hail Mary, de Andy Weir" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Fantasía</span></div>
+  <h3><a href="libro-proyecto-hail-mary.html">Proyecto Hail Mary</a></h3>
+  <p class="author">Andy Weir</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:94.0%"></b></span><span>4,7</span><span class="stars-count">(7.750)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">12,30 €</span></span><span class="badge badge-cat">544 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8413148464?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="proyecto-hail-mary" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-biblioteca-de-la-medianoche" data-formato="tapa dura" data-reveal>
+  <a href="libro-la-biblioteca-de-la-medianoche.html" aria-label="Ver la ficha de La Biblioteca de la Medianoche"><span class="cover"><img src="assets/img/la-biblioteca-de-la-medianoche-1.webp" alt="Portada de La Biblioteca de la Medianoche, de Matt Haig" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Filosofía</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-biblioteca-de-la-medianoche.html">La Biblioteca de la Medianoche</a></h3>
+  <p class="author">Matt Haig</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:86.0%"></b></span><span>4,3</span><span class="stars-count">(19.663)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,87 €</span><span class="price-was">12,50 €</span></span><span class="badge badge-cat">380 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8410138409?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-biblioteca-de-la-medianoche" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="los-siete-maridos-de-evelyn-hugo" data-formato="bolsillo" data-reveal>
+  <a href="libro-los-siete-maridos-de-evelyn-hugo.html" aria-label="Ver la ficha de Los siete maridos de Evelyn Hugo"><span class="cover"><img src="assets/img/los-siete-maridos-de-evelyn-hugo-1.webp" alt="Portada de Los siete maridos de Evelyn Hugo, de Taylor Jenkins Reid" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Drama</span></div>
+  <h3><a href="libro-los-siete-maridos-de-evelyn-hugo.html">Los siete maridos de Evelyn Hugo</a></h3>
+  <p class="author">Taylor Jenkins Reid</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:88.0%"></b></span><span>4,4</span><span class="stars-count">(26.070)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,35 €</span></span><span class="badge badge-cat">448 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8419130397?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="los-siete-maridos-de-evelyn-hugo" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-paciente-silenciosa" data-formato="bolsillo" data-reveal>
+  <a href="libro-la-paciente-silenciosa.html" aria-label="Ver la ficha de La paciente silenciosa"><span class="cover"><img src="assets/img/la-paciente-silenciosa-1.webp" alt="Portada de La paciente silenciosa, de Alex Michaelides" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Suspense</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-paciente-silenciosa.html">La paciente silenciosa</a></h3>
+  <p class="author">Alex Michaelides</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:84.0%"></b></span><span>4,2</span><span class="stars-count">(23.617)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,35 €</span><span class="price-was">11,95 €</span></span><span class="badge badge-cat">400 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8466351930?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-paciente-silenciosa" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-asistenta" data-formato="tapa blanda" data-reveal>
+  <a href="libro-la-asistenta.html" aria-label="Ver la ficha de La asistenta"><span class="cover"><img src="assets/img/la-asistenta-1.webp" alt="Portada de La asistenta, de Freida McFadden" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Suspense</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-asistenta.html">La asistenta</a></h3>
+  <p class="author">Freida McFadden</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:86.0%"></b></span><span>4,3</span><span class="stars-count">(27.473)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">18,90 €</span><span class="price-was">19,90 €</span></span><span class="badge badge-cat">344 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8491294287?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-asistenta" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Guías de compra</span><h2>¿No sabes por dónde empezar?</h2></div>
+    <div class="cat-grid"><a class="cat-card" href="guia-mejor-libro-para-desconectar-2026.html" data-reveal><h3>El mejor libro para desconectar en 2026</h3><p>Cinco libros elegidos por una única cosa: que te saquen de tu cabeza. Los ordenamos de más ligero a más…</p><span class="n">Leer la guía →</span></a><a class="cat-card" href="guia-mejores-thrillers-2026.html" data-reveal><h3>Los mejores thrillers y libros de suspense de 2026</h3><p>Qué thriller comprar según lo que busques: el del mejor giro final, el que más engancha y el que mejor está…</p><span class="n">Leer la guía →</span></a></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Novedades</span><h2>Lo más reciente</h2></div>
+    <div class="book-grid"><article class="book-card" data-book="alas-de-sangre" data-formato="tapa dura" data-reveal>
+  <a href="libro-alas-de-sangre.html" aria-label="Ver la ficha de Alas de sangre"><span class="cover"><img src="assets/img/alas-de-sangre-1.webp" alt="Portada de Alas de sangre, de Rebecca Yarros" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Fantasía</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-alas-de-sangre.html">Alas de sangre</a></h3>
+  <p class="author">Rebecca Yarros</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:94.0%"></b></span><span>4,7</span><span class="stars-count">(9.862)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">21,00 €</span></span><span class="badge badge-cat">736 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8408279998?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="alas-de-sangre" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="llevara-tu-nombre" data-formato="tapa dura" data-reveal>
+  <a href="libro-llevara-tu-nombre.html" aria-label="Ver la ficha de Llevará tu nombre"><span class="cover"><img src="assets/img/llevara-tu-nombre-2.webp" alt="Portada de Llevará tu nombre, de Sonsoles Ónega" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Amor</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-llevara-tu-nombre.html">Llevará tu nombre</a></h3>
+  <p class="author">Sonsoles Ónega</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:84.0%"></b></span><span>4,2</span><span class="stars-count">(4.445)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">22,70 €</span><span class="price-was">23,90 €</span></span><span class="badge badge-cat">488 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8408315242?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="llevara-tu-nombre" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="riete-de-las-bodas" data-formato="tapa blanda" data-reveal>
+  <a href="libro-riete-de-las-bodas.html" aria-label="Ver la ficha de Ríete de las bodas"><span class="cover"><img src="assets/img/riete-de-las-bodas-1.webp" alt="Portada de Ríete de las bodas, de Megan Maxwell" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Comedia</span><span class="badge badge-off">−5 %</span></div>
+  <h3><a href="libro-riete-de-las-bodas.html">Ríete de las bodas</a></h3>
+  <p class="author">Megan Maxwell</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:90.0%"></b></span><span>4,5</span><span class="stars-count">(1.069)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">21,75 €</span><span class="price-was">22,90 €</span></span><span class="badge badge-cat">624 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/846708264X?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="riete-de-las-bodas" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="el-club-de-las-indomables" data-formato="tapa dura" data-reveal>
+  <a href="libro-el-club-de-las-indomables.html" aria-label="Ver la ficha de El club de las indomables"><span class="cover"><img src="assets/img/el-club-de-las-indomables-1.webp" alt="Portada de El club de las indomables, de Kathryn Stockett" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Comedia</span><span class="badge badge-off">−5 %</span></div>
+  <h3><a href="libro-el-club-de-las-indomables.html">El club de las indomables</a></h3>
+  <p class="author">Kathryn Stockett</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:88.0%"></b></span><span>4,4</span><span class="stars-count">(880)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">23,65 €</span><span class="price-was">24,90 €</span></span><span class="badge badge-cat">896 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8408320556?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="el-club-de-las-indomables" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="murdoku-viaje-al-pasado" data-formato="tapa blanda" data-reveal>
+  <a href="libro-murdoku-viaje-al-pasado.html" aria-label="Ver la ficha de Murdoku: Viaje al pasado"><span class="cover"><img src="assets/img/murdoku-viaje-al-pasado-1.webp" alt="Portada de Murdoku: Viaje al pasado, de Manuel Garand" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Pasatiempos</span></div>
+  <h3><a href="libro-murdoku-viaje-al-pasado.html">Murdoku: Viaje al pasado</a></h3>
+  <p class="author">Manuel Garand</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:92.0%"></b></span><span>4,6</span><span class="stars-count">(124)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">17,00 €</span></span><span class="badge badge-cat">224 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/B0H29QB982?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="murdoku-viaje-al-pasado" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article></div>
+  </div>
+</section>
+</main>
+<div class="cmp-bar" data-cmp-bar role="status">
+  <span class="cmp-bar-text" data-cmp-bar-text></span>
+  <button class="btn-clear" type="button" data-cmp-clear>Vaciar</button>
+  <a class="btn btn-buy" href="comparador.html">Comparar</a>
+</div>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-mark">Book<span style="color:#A87C2E">At</span>Me<em>!</em></span>
+        <p>Comparativas de libros hechas con datos reales de Amazon.es y una opinión propia. Sin listas patrocinadas y sin puestos a la venta.</p>
+      </div>
+      <div><h4>Por género</h4><ul><li><a href="categoria-amor.html">Amor</a></li><li><a href="categoria-suspense.html">Suspense</a></li><li><a href="categoria-drama.html">Drama</a></li><li><a href="categoria-comedia.html">Comedia</a></li><li><a href="categoria-filosofia.html">Filosofía</a></li><li><a href="categoria-fantasia.html">Fantasía</a></li><li><a href="categoria-pasatiempos.html">Pasatiempos</a></li></ul></div>
+      <div><h4>Guías</h4><ul><li><a href="guia-mejor-libro-para-desconectar-2026.html">Mejor libro para desconectar</a></li><li><a href="guia-mejores-thrillers-2026.html">Mejores thrillers</a></li><li><a href="ofertas.html">Ofertas</a></li><li><a href="comparador.html">Comparador</a></li></ul></div>
+      <div><h4>La casa</h4><ul><li><a href="#" data-guia-abrir>Ver la guía de la web</a></li>
+        <li><a href="como-elegimos.html">Cómo elegimos</a></li>
+        <li><a href="aviso-afiliados.html">Aviso de afiliados</a></li>
+        <li><a href="privacidad.html">Privacidad y cookies</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-legal">
+      <p><strong>Aviso de afiliados:</strong> BookAtMe! participa en el Programa de Afiliados de Amazon EU, un programa de publicidad
+      que permite a los sitios web obtener comisiones por publicitar e incluir enlaces a Amazon.es. Como Afiliado de Amazon,
+      obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. El precio que pagas es el mismo.
+      Amazon y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o sus filiales.<br>
+      Los precios y la disponibilidad mostrados son los del 25 de agosto de 2026 y pueden haber cambiado. El precio válido es el que aparece en Amazon en el momento de la compra.</p>
+      <p>© 2026 BookAtMe!</p>
+    </div>
+  </div>
+</footer>
+<script type="application/json" id="guia-pasos">{"clave": "inicio", "pasos": [{"sel": ".nav-links", "titulo": "Todo empieza por aquí", "texto": "Los libros están ordenados por género. En «Estantería» los verás en 3D y podrás hojearlos, y en «Comparador» puedes enfrentar hasta cuatro a la vez."}, {"sel": ".book-card .card-badges", "titulo": "Cada libro, de un vistazo", "texto": "El género, y si está rebajado o destacado. Nuestra nota propia sobre 10 no está aquí: está dentro, en la ficha del libro, junto al gráfico de sus seis ejes."}, {"sel": ".book-card .stars", "titulo": "Esta nota es de Amazon", "texto": "La media de los lectores y cuántos han opinado. Es un dato de Amazon, no nuestro: las dos notas aparecen por separado en la ficha y nunca las mezclamos."}, {"sel": ".book-card .price", "titulo": "El precio, con su fecha", "texto": "Es el que había el día que lo miramos, no el de ahora mismo. Por eso decimos «precio orientativo»: el que vale es el que veas en Amazon al comprar."}, {"sel": ".book-card .cmp-add", "titulo": "Guarda los que dudes", "texto": "Marca «Comparar» en dos o más libros y podrás verlos enfrentados en una tabla, con la mejor cifra de cada fila resaltada."}, {"sel": ".book-card .btn-buy", "titulo": "Y cuando lo tengas claro", "texto": "Este botón lleva a Amazon. Es un enlace de afiliado: si compras nos llevamos una comisión y a ti te cuesta exactamente lo mismo. Por eso también contamos lo malo de cada libro."}]}</script>
+<script defer src="lib/db.js?v=20260827-1727"></script>
+<script defer src="main.js?v=20260827-1727"></script>
+<!-- Analitica desactivada: rellena ANALYTICS_TOKEN en tools/build_site.py -->
+</body>
+</html>

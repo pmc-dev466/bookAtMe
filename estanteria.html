@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+   ARCHIVO GENERADO - NO LO EDITES.
+
+   Este archivo lo escribe tools/build_site.py y se sobrescribe ENTERO cada
+   vez que se reconstruye la web. Cualquier cambio que hagas aqui se pierde.
+
+   Lo que buscas esta en:
+     datos/libros.json     los libros: pros, contras, descripciones, notas
+     styles.css            colores, tamanos, margenes
+     tools/build_site.py   los textos que salen en todas las paginas
+
+   Y luego doble clic en actualizar.bat (o deja abierto desarrollo.bat).
+  ==========================================================================
+-->
+<html lang="es" class="pagina-estanteria">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La estantería en 3D · BookAtMe!</title>
+<meta name="description" content="Coge cualquiera de los 24 libros que comparamos, ábrelo y hójealo: sinopsis, pros, contras y nota, dentro del propio libro.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La estantería en 3D · BookAtMe!">
+<meta property="og:description" content="Coge cualquiera de los 24 libros que comparamos, ábrelo y hójealo: sinopsis, pros, contras y nota, dentro del propio libro.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="BookAtMe!">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bookatme.pages.dev/estanteria.html">
+<meta property="og:url" content="https://bookatme.pages.dev/estanteria.html">
+<meta property="og:image" content="https://bookatme.pages.dev/assets/og/bookatme.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://bookatme.pages.dev/assets/og/bookatme.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Las tipografias no bloquean el pintado: se cargan como hoja de impresion
+     y pasan a valer para pantalla al terminar. Antes, si fonts.googleapis.com iba
+     lento, la web entera se quedaba en blanco esperando a un servidor ajeno.
+     Con display=swap el texto se ve desde el primer momento con la del sistema. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;;this.onload=null" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icono-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#14161C">
+<link rel="stylesheet" href="styles.css?v=20260827-1727">
+<script>document.documentElement.className+=" js";</script>
+<script type="importmap">
+{"imports":{"three":"./lib/three/three.module.min.js","three/addons/":"./lib/three/addons/"}}
+</script>
+<script defer src="lib/estanteria-db.js?v=20260827-1727"></script>
+<script type="module" src="lib/estanteria3d.js?v=20260827-1727"></script>
+<script>
+/* Red de seguridad: si a los 8 s la estantería no ha dicho que está lista, se retira
+   y queda la rejilla de libros. Nunca una ruleta girando para siempre. */
+setTimeout(function () {
+  var e = document.getElementById("estanteria");
+  if (!e || e.classList.contains("listo")) return;
+  e.style.display = "none";
+  var c = document.getElementById("estanteria-cargando");
+  if (c) c.hidden = true;
+}, 8000);
+</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "La estantería de BookAtMe!", "numberOfItems": 24, "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Book", "name": "La asistenta", "author": {"@type": "Person", "name": "Freida McFadden"}, "url": "libro-la-asistenta.html"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Book", "name": "La paciente silenciosa", "author": {"@type": "Person", "name": "Alex Michaelides"}, "url": "libro-la-paciente-silenciosa.html"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Book", "name": "Alas de sangre", "author": {"@type": "Person", "name": "Rebecca Yarros"}, "url": "libro-alas-de-sangre.html"}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Book", "name": "La Biblioteca de la Medianoche", "author": {"@type": "Person", "name": "Matt Haig"}, "url": "libro-la-biblioteca-de-la-medianoche.html"}}, {"@type": "ListItem", "position": 5, "item": {"@type": "Book", "name": "El hombre en busca de sentido", "author": {"@type": "Person", "name": "Viktor Frankl"}, "url": "libro-el-hombre-en-busca-de-sentido.html"}}, {"@type": "ListItem", "position": 6, "item": {"@type": "Book", "name": "Las gratitudes", "author": {"@type": "Person", "name": "Delphine de Vigan"}, "url": "libro-las-gratitudes.html"}}, {"@type": "ListItem", "position": 7, "item": {"@type": "Book", "name": "Comerás flores", "author": {"@type": "Person", "name": "Lucía Solla Sobral"}, "url": "libro-comeras-flores.html"}}, {"@type": "ListItem", "position": 8, "item": {"@type": "Book", "name": "Llevará tu nombre", "author": {"@type": "Person", "name": "Sonsoles Ónega"}, "url": "libro-llevara-tu-nombre.html"}}, {"@type": "ListItem", "position": 9, "item": {"@type": "Book", "name": "Ríete de las bodas", "author": {"@type": "Person", "name": "Megan Maxwell"}, "url": "libro-riete-de-las-bodas.html"}}, {"@type": "ListItem", "position": 10, "item": {"@type": "Book", "name": "El club de las indomables", "author": {"@type": "Person", "name": "Kathryn Stockett"}, "url": "libro-el-club-de-las-indomables.html"}}, {"@type": "ListItem", "position": 11, "item": {"@type": "Book", "name": "Murdoku: 80 acertijos de lógica y asesinatos", "author": {"@type": "Person", "name": "Manuel Garand"}, "url": "libro-murdoku.html"}}, {"@type": "ListItem", "position": 12, "item": {"@type": "Book", "name": "Murdoku: Viaje al pasado", "author": {"@type": "Person", "name": "Manuel Garand"}, "url": "libro-murdoku-viaje-al-pasado.html"}}, {"@type": "ListItem", "position": 13, "item": {"@type": "Book", "name": "Murdle: Resuelve el crimen", "author": {"@type": "Person", "name": "G. T. Karber"}, "url": "libro-murdle.html"}}, {"@type": "ListItem", "position": 14, "item": {"@type": "Book", "name": "Sopicidios: el asesino está entre las letras", "author": {"@type": "Person", "name": "Daniel Vergel"}, "url": "libro-sopicidios.html"}}, {"@type": "ListItem", "position": 15, "item": {"@type": "Book", "name": "El secreto de la asistenta", "author": {"@type": "Person", "name": "Freida McFadden"}, "url": "libro-el-secreto-de-la-asistenta.html"}}, {"@type": "ListItem", "position": 16, "item": {"@type": "Book", "name": "El recluso", "author": {"@type": "Person", "name": "Freida McFadden"}, "url": "libro-el-recluso.html"}}, {"@type": "ListItem", "position": 17, "item": {"@type": "Book", "name": "La profesora", "author": {"@type": "Person", "name": "Freida McFadden"}, "url": "libro-la-profesora.html"}}, {"@type": "ListItem", "position": 18, "item": {"@type": "Book", "name": "Verity", "author": {"@type": "Person", "name": "Colleen Hoover"}, "url": "libro-verity.html"}}, {"@type": "ListItem", "position": 19, "item": {"@type": "Book", "name": "El duque y yo", "author": {"@type": "Person", "name": "Julia Quinn"}, "url": "libro-el-duque-y-yo.html"}}, {"@type": "ListItem", "position": 20, "item": {"@type": "Book", "name": "La península de las casas vacías", "author": {"@type": "Person", "name": "David Uclés"}, "url": "libro-la-peninsula-de-las-casas-vacias.html"}}, {"@type": "ListItem", "position": 21, "item": {"@type": "Book", "name": "Los siete maridos de Evelyn Hugo", "author": {"@type": "Person", "name": "Taylor Jenkins Reid"}, "url": "libro-los-siete-maridos-de-evelyn-hugo.html"}}, {"@type": "ListItem", "position": 22, "item": {"@type": "Book", "name": "Alas de hierro", "author": {"@type": "Person", "name": "Rebecca Yarros"}, "url": "libro-alas-de-hierro.html"}}, {"@type": "ListItem", "position": 23, "item": {"@type": "Book", "name": "Proyecto Hail Mary", "author": {"@type": "Person", "name": "Andy Weir"}, "url": "libro-proyecto-hail-mary.html"}}, {"@type": "ListItem", "position": 24, "item": {"@type": "Book", "name": "Alchemised", "author": {"@type": "Person", "name": "SenLinYu"}, "url": "libro-alchemised.html"}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Ir al contenido</a>
+<div class="aff-bar">Como afiliados de Amazon, ganamos una comisión por las compras que cumplen los requisitos. Para ti el precio es el mismo. <a href="aviso-afiliados.html">Más información</a>.</div>
+<header class="site-head" data-head>
+  <div class="wrap head-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">Book<span>At</span>Me<em>!</em></span>
+      <span class="brand-tag">Comparativas de libros</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="estanteria.html" aria-current="page">Estantería</a>
+      <a href="guia-mejor-libro-para-desconectar-2026.html">Guías</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="como-elegimos.html">Cómo elegimos</a>
+      <a class="nav-cta" href="comparador.html">Comparador<span class="nav-cta-count" data-cmp-count>0</span></a>
+    </nav>
+    <button class="btn-guia" type="button" data-guia-abrir aria-label="Ver la guía de la web" title="Ver la guía de la web"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M7.9 7.6a2.2 2.2 0 013.9 1.2c0 1.5-2 1.6-2 2.9"/><path d="M9.8 14.4h.02"/></svg></button>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer" data-nav-drawer>
+    <a href="index.html">Inicio</a>
+    <a href="estanteria.html">La estantería en 3D</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="ofertas.html">Ofertas</a>
+    <a href="guia-mejor-libro-para-desconectar-2026.html">Guías de compra</a>
+    <div class="drawer-label">Por género</div>
+    <a href="#" data-guia-abrir>Ver la guía de la web</a>
+    <div class="drawer-label">La casa</div>
+    <a href="categoria-amor.html">Amor</a><a href="categoria-suspense.html">Suspense</a><a href="categoria-drama.html">Drama</a><a href="categoria-comedia.html">Comedia</a><a href="categoria-filosofia.html">Filosofía</a><a href="categoria-fantasia.html">Fantasía</a><a href="categoria-pasatiempos.html">Pasatiempos</a><a href="como-elegimos.html">Cómo elegimos</a>
+    <a href="aviso-afiliados.html">Aviso de afiliados</a>
+  </div>
+</header>
+<main id="main">
+
+<section class="est-escena" id="estanteria" aria-label="Estantería en tres dimensiones">
+  <canvas id="estanteria-canvas" aria-hidden="true"></canvas>
+
+  <div class="est-cargando" id="estanteria-cargando">
+    <div class="est-cargando-marca" aria-hidden="true"></div>
+    <p>Montando la estantería</p>
+  </div>
+
+  <div class="est-barra" id="estanteria-ui">
+    <div class="est-sel">
+      <span class="est-contador" id="sel-contador">01 / 01</span>
+      <div class="est-sel-txt">
+        <p class="est-sel-titulo" id="sel-titulo">&nbsp;</p>
+        <p class="est-sel-nota" id="sel-nota">&nbsp;</p>
+      </div>
+    </div>
+    <div class="est-acciones">
+      <button class="est-redondo" type="button" id="btn-anterior" aria-label="Libro anterior">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10.5 3.5-4.5 4.5 4.5 4.5"/></svg>
+      </button>
+      <button class="est-texto" type="button" id="btn-abrir">Abrir</button>
+      <button class="est-redondo" type="button" id="btn-siguiente" aria-label="Libro siguiente">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5.5 3.5 4.5 4.5-4.5 4.5"/></svg>
+      </button>
+    </div>
+    <nav class="est-indice" aria-label="Índice de la estantería">
+      <div class="est-marcadores" id="sel-marcadores" role="tablist" aria-label="Elegir libro"></div>
+      <p class="est-pista">Rueda · flechas · clic en el libro</p>
+    </nav>
+  </div>
+
+  <aside class="est-panel" id="estanteria-panel" role="dialog" aria-modal="true"
+         aria-labelledby="p-titulo" aria-hidden="true" inert>
+    <button class="est-cerrar" type="button" id="btn-cerrar-panel" aria-label="Devolver el libro a la estantería">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg>
+    </button>
+    <p class="est-genero" id="p-genero"></p>
+    <h2 class="est-titulo" id="p-titulo"></h2>
+    <p class="est-autor" id="p-autor"></p>
+    <p class="est-sinopsis" id="p-sinopsis"></p>
+    <ul class="est-pros" id="p-pros"></ul>
+    <dl class="est-datos" id="p-datos"></dl>
+    <div class="est-cta">
+      <a class="btn btn-buy" id="p-comprar" href="#" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+      <a class="btn btn-ghost" id="p-ficha" href="#">Ver ficha completa</a>
+    </div>
+    <p class="est-precio" id="p-precio"></p>
+    <div class="est-hojear" role="group" aria-label="Hojear el libro">
+      <button class="est-pag" type="button" id="btn-pag-anterior" aria-label="Página anterior" disabled>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10.5 3.5-4.5 4.5 4.5 4.5"/></svg>
+      </button>
+      <p class="est-pag-estado"><strong id="pag-etiqueta">Cerrado</strong><span id="pag-contador">Ábrelo para hojear</span></p>
+      <button class="est-pag" type="button" id="btn-pag-siguiente" aria-label="Página siguiente" disabled>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5.5 3.5 4.5 4.5-4.5 4.5"/></svg>
+      </button>
+    </div>
+    <div class="est-panel-pie">
+      <p class="est-pista" id="panel-pista">Toca el libro para abrirlo</p>
+      <div class="est-panel-botones">
+        <button class="est-enlace" type="button" id="btn-hojear" aria-pressed="false">Hojear el libro</button>
+        <button class="est-enlace" type="button" id="btn-reset-vista">Centrar</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="est-etiqueta" id="etiqueta-raton" aria-hidden="true">
+    <span id="etiqueta-raton-num"></span>
+    <strong id="etiqueta-raton-tit"></strong>
+  </div>
+  <p class="sr-only" id="estanteria-avisos" aria-live="polite"></p>
+</section>
+
+<div class="est-respaldo" id="estanteria-respaldo">
+  <section class="section">
+    <div class="wrap">
+      <nav class="crumbs"><a href="index.html">Inicio</a><span>›</span><span>La estantería</span></nav>
+      <div class="section-head">
+        <span class="eyebrow">La estantería</span>
+        <h1>Los 24 libros, uno a uno</h1>
+        <p class="lead" data-motivo>Todos los que comparamos, con su ficha, su nota y su precio.
+          Si tu navegador admite gráficos 3D, arriba puedes cogerlos de la balda y hojearlos.</p>
+      </div>
+      <div class="book-grid"><article class="book-card" data-book="murdoku" data-formato="tapa blanda" data-reveal>
+  <a href="libro-murdoku.html" aria-label="Ver la ficha de Murdoku: 80 acertijos de lógica y asesinatos"><span class="cover"><img src="assets/img/murdoku-1.webp" alt="Portada de Murdoku: 80 acertijos de lógica y asesinatos, de Manuel Garand" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Pasatiempos</span></div>
+  <h3><a href="libro-murdoku.html">Murdoku: 80 acertijos de lógica y asesinatos</a></h3>
+  <p class="author">Manuel Garand</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:92.0%"></b></span><span>4,6</span><span class="stars-count">(772)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">17,00 €</span></span><span class="badge badge-cat">208 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/B0FGDJCKXS?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="murdoku" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="murdoku-viaje-al-pasado" data-formato="tapa blanda" data-reveal>
+  <a href="libro-murdoku-viaje-al-pasado.html" aria-label="Ver la ficha de Murdoku: Viaje al pasado"><span class="cover"><img src="assets/img/murdoku-viaje-al-pasado-1.webp" alt="Portada de Murdoku: Viaje al pasado, de Manuel Garand" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Pasatiempos</span></div>
+  <h3><a href="libro-murdoku-viaje-al-pasado.html">Murdoku: Viaje al pasado</a></h3>
+  <p class="author">Manuel Garand</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:92.0%"></b></span><span>4,6</span><span class="stars-count">(124)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">17,00 €</span></span><span class="badge badge-cat">224 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/B0H29QB982?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="murdoku-viaje-al-pasado" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="murdle" data-formato="tapa blanda" data-reveal>
+  <a href="libro-murdle.html" aria-label="Ver la ficha de Murdle: Resuelve el crimen"><span class="cover"><img src="assets/img/murdle-1.webp" alt="Portada de Murdle: Resuelve el crimen, de G. T. Karber" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Pasatiempos</span></div>
+  <h3><a href="libro-murdle.html">Murdle: Resuelve el crimen</a></h3>
+  <p class="author">G. T. Karber</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:90.0%"></b></span><span>4,5</span><span class="stars-count">(408)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">10,40 €</span></span><span class="badge badge-cat">384 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/B0FW58JS7X?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="murdle" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="sopicidios" data-formato="tapa blanda" data-reveal>
+  <a href="libro-sopicidios.html" aria-label="Ver la ficha de Sopicidios: el asesino está entre las letras"><span class="cover"><img src="assets/img/sopicidios-1.webp" alt="Portada de Sopicidios: el asesino está entre las letras, de Daniel Vergel" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Pasatiempos</span></div>
+  <h3><a href="libro-sopicidios.html">Sopicidios: el asesino está entre las letras</a></h3>
+  <p class="author">Daniel Vergel</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:94.0%"></b></span><span>4,7</span><span class="stars-count">(256)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">15,95 €</span></span><span class="badge badge-cat">192 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/B0H5F1BTKS?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="sopicidios" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-paciente-silenciosa" data-formato="bolsillo" data-reveal>
+  <a href="libro-la-paciente-silenciosa.html" aria-label="Ver la ficha de La paciente silenciosa"><span class="cover"><img src="assets/img/la-paciente-silenciosa-1.webp" alt="Portada de La paciente silenciosa, de Alex Michaelides" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Suspense</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-paciente-silenciosa.html">La paciente silenciosa</a></h3>
+  <p class="author">Alex Michaelides</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:84.0%"></b></span><span>4,2</span><span class="stars-count">(23.617)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,35 €</span><span class="price-was">11,95 €</span></span><span class="badge badge-cat">400 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8466351930?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-paciente-silenciosa" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="las-gratitudes" data-formato="tapa blanda" data-reveal>
+  <a href="libro-las-gratitudes.html" aria-label="Ver la ficha de Las gratitudes"><span class="cover"><img src="assets/img/las-gratitudes-2.webp" alt="Portada de Las gratitudes, de Delphine de Vigan" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Drama</span><span class="badge badge-off">−5 %</span></div>
+  <h3><a href="libro-las-gratitudes.html">Las gratitudes</a></h3>
+  <p class="author">Delphine de Vigan</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:88.0%"></b></span><span>4,4</span><span class="stars-count">(8.425)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">18,90 €</span><span class="price-was">19,90 €</span></span><span class="badge badge-cat">176 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8433980831?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="las-gratitudes" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="el-hombre-en-busca-de-sentido" data-formato="tapa blanda" data-reveal>
+  <a href="libro-el-hombre-en-busca-de-sentido.html" aria-label="Ver la ficha de El hombre en busca de sentido"><span class="cover"><img src="assets/img/el-hombre-en-busca-de-sentido-2.webp" alt="Portada de El hombre en busca de sentido, de Viktor Frankl" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Filosofía</span><span class="badge badge-off">−5 %</span></div>
+  <h3><a href="libro-el-hombre-en-busca-de-sentido.html">El hombre en busca de sentido</a></h3>
+  <p class="author">Viktor Frankl</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:90.0%"></b></span><span>4,5</span><span class="stars-count">(26.866)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">12,25 €</span><span class="price-was">12,90 €</span></span><span class="badge badge-cat">168 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8425432022?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="el-hombre-en-busca-de-sentido" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="la-biblioteca-de-la-medianoche" data-formato="tapa dura" data-reveal>
+  <a href="libro-la-biblioteca-de-la-medianoche.html" aria-label="Ver la ficha de La Biblioteca de la Medianoche"><span class="cover"><img src="assets/img/la-biblioteca-de-la-medianoche-1.webp" alt="Portada de La Biblioteca de la Medianoche, de Matt Haig" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Filosofía</span><span class="badge badge-off">−5 %</span><span class="badge badge-top">Destacado</span></div>
+  <h3><a href="libro-la-biblioteca-de-la-medianoche.html">La Biblioteca de la Medianoche</a></h3>
+  <p class="author">Matt Haig</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:86.0%"></b></span><span>4,3</span><span class="stars-count">(19.663)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">11,87 €</span><span class="price-was">12,50 €</span></span><span class="badge badge-cat">380 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8410138409?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="la-biblioteca-de-la-medianoche" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="comeras-flores" data-formato="tapa blanda" data-reveal>
+  <a href="libro-comeras-flores.html" aria-label="Ver la ficha de Comerás flores"><span class="cover"><img src="assets/img/comeras-flores-1.webp" alt="Portada de Comerás flores, de Lucía Solla Sobral" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Drama</span><span class="badge badge-off">−5 %</span></div>
+  <h3><a href="libro-comeras-flores.html">Comerás flores</a></h3>
+  <p class="author">Lucía Solla Sobral</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:86.0%"></b></span><span>4,3</span><span class="stars-count">(10.064)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">18,95 €</span><span class="price-was">19,95 €</span></span><span class="badge badge-cat">248 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8410178591?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="comeras-flores" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article><article class="book-card" data-book="el-secreto-de-la-asistenta" data-formato="tapa blanda" data-reveal>
+  <a href="libro-el-secreto-de-la-asistenta.html" aria-label="Ver la ficha de El secreto de la asistenta"><span class="cover"><img src="assets/img/el-secreto-de-la-asistenta-1.webp" alt="Portada de El secreto de la asistenta, de Freida McFadden" loading="lazy" decoding="async" width="400" height="600"></span></a>
+  <div class="card-badges"><span class="badge badge-cat">Suspense</span></div>
+  <h3><a href="libro-el-secreto-de-la-asistenta.html">El secreto de la asistenta</a></h3>
+  <p class="author">Freida McFadden</p>
+  <span class="stars"><span class="stars-glyph" aria-hidden="true"><b style="width:88.0%"></b></span><span>4,4</span><span class="stars-count">(16.273)</span></span>
+  <div class="card-foot"><span class="price"><span class="price-now">19,85 €</span></span><span class="badge badge-cat">336 p.</span></div>
+  <a class="btn btn-buy" href="https://www.amazon.es/dp/8419835730?tag=voltbike-21" target="_blank" rel="sponsored nofollow noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16h6M4.5 7h11l-1 7.5h-9L4.5 7zM7.5 7V5a2.5 2.5 0 015 0v2"/></svg>Ver en Amazon</a>
+  <button class="cmp-add" type="button" data-cmp-add="el-secreto-de-la-asistenta" aria-pressed="false"><span class="box"></span><span data-cmp-label>Comparar</span></button>
+</article></div>
+    </div>
+  </section>
+</div>
+
+</main>
+<div class="cmp-bar" data-cmp-bar role="status">
+  <span class="cmp-bar-text" data-cmp-bar-text></span>
+  <button class="btn-clear" type="button" data-cmp-clear>Vaciar</button>
+  <a class="btn btn-buy" href="comparador.html">Comparar</a>
+</div>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-mark">Book<span style="color:#A87C2E">At</span>Me<em>!</em></span>
+        <p>Comparativas de libros hechas con datos reales de Amazon.es y una opinión propia. Sin listas patrocinadas y sin puestos a la venta.</p>
+      </div>
+      <div><h4>Por género</h4><ul><li><a href="categoria-amor.html">Amor</a></li><li><a href="categoria-suspense.html">Suspense</a></li><li><a href="categoria-drama.html">Drama</a></li><li><a href="categoria-comedia.html">Comedia</a></li><li><a href="categoria-filosofia.html">Filosofía</a></li><li><a href="categoria-fantasia.html">Fantasía</a></li><li><a href="categoria-pasatiempos.html">Pasatiempos</a></li></ul></div>
+      <div><h4>Guías</h4><ul><li><a href="guia-mejor-libro-para-desconectar-2026.html">Mejor libro para desconectar</a></li><li><a href="guia-mejores-thrillers-2026.html">Mejores thrillers</a></li><li><a href="ofertas.html">Ofertas</a></li><li><a href="comparador.html">Comparador</a></li></ul></div>
+      <div><h4>La casa</h4><ul><li><a href="#" data-guia-abrir>Ver la guía de la web</a></li>
+        <li><a href="como-elegimos.html">Cómo elegimos</a></li>
+        <li><a href="aviso-afiliados.html">Aviso de afiliados</a></li>
+        <li><a href="privacidad.html">Privacidad y cookies</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-legal">
+      <p><strong>Aviso de afiliados:</strong> BookAtMe! participa en el Programa de Afiliados de Amazon EU, un programa de publicidad
+      que permite a los sitios web obtener comisiones por publicitar e incluir enlaces a Amazon.es. Como Afiliado de Amazon,
+      obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. El precio que pagas es el mismo.
+      Amazon y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o sus filiales.<br>
+      Los precios y la disponibilidad mostrados son los del 25 de agosto de 2026 y pueden haber cambiado. El precio válido es el que aparece en Amazon en el momento de la compra.</p>
+      <p>© 2026 BookAtMe!</p>
+    </div>
+  </div>
+</footer>
+<script type="application/json" id="guia-pasos">{"clave": "estanteria", "pasos": [{"sel": "#estanteria-canvas", "titulo": "Una estantería de verdad", "texto": "Gira con la rueda del ratón o con las flechas del teclado. Haz clic en un libro para cogerlo. Aquí solo están los diez más vendidos de Amazon.es."}, {"sel": ".est-acciones", "titulo": "Ábrelo y hojéalo", "texto": "Al abrir un libro puedes pasar sus páginas: dentro está la sinopsis, lo que nos gusta, lo que no, la ficha y nuestra nota. Arrastra la tapa para cerrarlo."}, {"sel": ".est-indice", "titulo": "Dónde estás", "texto": "Este contador te dice por qué libro vas. Si prefieres verlos en lista normal, tienes el resto del catálogo en el menú."}]}</script>
+<script defer src="lib/db.js?v=20260827-1727"></script>
+<script defer src="main.js?v=20260827-1727"></script>
+<!-- Analitica desactivada: rellena ANALYTICS_TOKEN en tools/build_site.py -->
+</body>
+</html>
