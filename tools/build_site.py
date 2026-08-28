@@ -121,6 +121,24 @@ IC = {
 }
 
 # ---------------------------------------------------------------- plantilla
+# ---- Por que las tipografias son nuestras y no de Google ----
+# Se pedian a fonts.googleapis.com y eso tenia dos pegas.
+#
+# La gorda: el texto aparecia con la letra del sistema y luego cambiaba a la
+# buena. No ocupan lo mismo -medido: los titulares un 9% mas estrechos, los
+# parrafos un 9%, el menu un 7% mas ancho- asi que al cambiar se recolocaban
+# las lineas y la pagina daba un salto. Google mide ese salto (lo llama CLS) y
+# lo usa para posicionar; el panel de Cloudflare lo marcaba en 1 sobre 1.
+#
+# La otra: la IP de cada visitante acababa en un servidor de Google.
+#
+# Ahora salen de assets/fonts/. Los tres que se ven nada mas abrir llevan
+# preload para estar listos ANTES del primer pintado, asi no se llega a ver el
+# cambio. El crossorigin del preload no sobra aunque sea el mismo dominio: sin
+# el, el navegador se descarga el archivo DOS veces. Los de latin-ext solo se
+# bajan si hace falta alguna letra rara, gracias al unicode-range.
+#
+# Para cambiar de tipografia: tools/traer_fuentes.py. fuentes.css se genera.
 def pagina(titulo, descripcion, cuerpo, activo="", extra_head="", jsonld=None, clase="", guia=""):
     ld = ""
     if jsonld:
@@ -155,15 +173,11 @@ def pagina(titulo, descripcion, cuerpo, activo="", extra_head="", jsonld=None, c
 <meta property="og:site_name" content="BookAtMe!">
 <meta name="twitter:card" content="summary_large_image">
 <!--SEO-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Las tipografias no bloquean el pintado: se cargan como hoja de impresion
-     y pasan a valer para pantalla al terminar. Antes, si fonts.googleapis.com iba
-     lento, la web entera se quedaba en blanco esperando a un servidor ajeno.
-     Con display=swap el texto se ve desde el primer momento con la del sistema. -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;;this.onload=null" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+<!-- Tipografias propias (assets/fonts/). El porque, en tools/build_site.py. -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/newsreader-latin.woff2" crossorigin>
+<link rel="stylesheet" href="fuentes.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icono-180.png">
 <link rel="manifest" href="site.webmanifest">

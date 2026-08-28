@@ -33,20 +33,16 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://bookatme.pages.dev/assets/og/bookatme.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Las tipografias no bloquean el pintado: se cargan como hoja de impresion
-     y pasan a valer para pantalla al terminar. Antes, si fonts.googleapis.com iba
-     lento, la web entera se quedaba en blanco esperando a un servidor ajeno.
-     Con display=swap el texto se ve desde el primer momento con la del sistema. -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;;this.onload=null" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+<!-- Tipografias propias (assets/fonts/). El porque, en tools/build_site.py. -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/newsreader-latin.woff2" crossorigin>
+<link rel="stylesheet" href="fuentes.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icono-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#14161C">
-<link rel="stylesheet" href="styles.css?v=ce1f0cf32a">
+<link rel="stylesheet" href="styles.css?v=cf3a7392f9">
 <script>document.documentElement.className+=" js";</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Los mejores thrillers y libros de suspense de 2026", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "La paciente silenciosa", "url": "libro-la-paciente-silenciosa.html"}, {"@type": "ListItem", "position": 2, "name": "La asistenta", "url": "libro-la-asistenta.html"}, {"@type": "ListItem", "position": 3, "name": "Comerás flores", "url": "libro-comeras-flores.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuál tiene el mejor giro final?", "acceptedAnswer": {"@type": "Answer", "text": "La paciente silenciosa, de Alex Michaelides. Es el elemento que aparece en prácticamente todas sus reseñas de cinco estrellas, y el motivo por el que el libro sigue en el top 10 de Amazon.es años después de publicarse."}}, {"@type": "Question", "name": "¿La asistenta o La paciente silenciosa?", "acceptedAnswer": {"@type": "Answer", "text": "La asistenta si lo que quieres es velocidad pura y te da igual el estilo; La paciente silenciosa si quieres un thriller algo mejor escrito y con un final más redondo. La segunda además cuesta 7,55 € menos."}}, {"@type": "Question", "name": "¿Hace falta leer la saga entera de La asistenta?", "acceptedAnswer": {"@type": "Answer", "text": "No. El primer libro se cierra por completo y se entiende solo. Las continuaciones existen para quien se quede con ganas, no porque falte nada."}}, {"@type": "Question", "name": "¿Los thrillers de esta lista tienen escenas duras?", "acceptedAnswer": {"@type": "Answer", "text": "Los tres tratan temas de violencia o de relaciones tóxicas, pero ninguno es explícito en lo gráfico. Comerás flores es el más incómodo de los tres, y lo es por lo reconocible de lo que cuenta, no por lo que enseña."}}]}</script>
 </head>
@@ -173,8 +169,8 @@
   </div>
 </footer>
 
-<script defer src="lib/db.js?v=ce1f0cf32a"></script>
-<script defer src="main.js?v=ce1f0cf32a"></script>
+<script defer src="lib/db.js?v=cf3a7392f9"></script>
+<script defer src="main.js?v=cf3a7392f9"></script>
 <!-- Analitica desactivada: rellena ANALYTICS_TOKEN en tools/build_site.py -->
 </body>
 </html>

@@ -239,6 +239,8 @@ texto del menú. Si no hay nada que publicar, te lo dice y no hace nada.
 | `datos/libros.json` | **La fuente de la verdad.** Los 24 libros. Todo sale de aquí. |
 | `datos/libros.schema.json` | El contrato: qué significa cada campo. Documentación, no se ejecuta. |
 | `styles.css` | Todo el diseño, en 12 secciones numeradas. La 1 son los colores. |
+| `fuentes.css` | **Generado, no lo toques.** Declara las tipografías. Lo escribe `tools/traer_fuentes.py`. |
+| `assets/fonts/` | Las tipografías, 8 archivos. Antes se pedían a Google; ahora son tuyas. |
 | `main.js` | Galería, comparador, filtros y la guía de bienvenida. |
 | `lib/estanteria3d.js` | La estantería en 3D. El único archivo de `lib/` hecho a mano. |
 | `GUIA.md` | Esto. |
@@ -248,6 +250,7 @@ texto del menú. Si no hay nada que publicar, te lo dice y no hace nada.
 | Archivo | Qué hace |
 |---|---|
 | `build_site.py` | **El generador.** Lee el JSON y escribe las 41 páginas. Aquí viven los textos fijos. |
+| `traer_fuentes.py` | Descarga las tipografías de Google al proyecto. Solo si cambias de tipografía. |
 | `servidor.py` | El servidor de desarrollo: sirve, vigila, reconstruye y recarga. |
 | `comprobar_sitio.py` | El revisor: enlaces rotos, SEO, accesibilidad, peso de imágenes. |
 | `preparar_publicacion.py` | Deja en `publicar/` solo lo que debe ser público. |

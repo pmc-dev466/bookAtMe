@@ -40,6 +40,11 @@
 /lib/three/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Las tipografias no cambian nunca: un ano. Va ANTES que la regla general de
+# /assets/* porque gana la mas especifica.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Portadas y miniaturas: un mes.
 /assets/*
   Cache-Control: public, max-age=2592000

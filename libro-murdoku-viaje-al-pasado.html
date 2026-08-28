@@ -33,20 +33,16 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://bookatme.pages.dev/assets/og/libro-murdoku-viaje-al-pasado.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Las tipografias no bloquean el pintado: se cargan como hoja de impresion
-     y pasan a valer para pantalla al terminar. Antes, si fonts.googleapis.com iba
-     lento, la web entera se quedaba en blanco esperando a un servidor ajeno.
-     Con display=swap el texto se ve desde el primer momento con la del sistema. -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;;this.onload=null" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap"></noscript>
+<!-- Tipografias propias (assets/fonts/). El porque, en tools/build_site.py. -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/newsreader-latin.woff2" crossorigin>
+<link rel="stylesheet" href="fuentes.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icono-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#14161C">
-<link rel="stylesheet" href="styles.css?v=ce1f0cf32a">
+<link rel="stylesheet" href="styles.css?v=cf3a7392f9">
 <script>document.documentElement.className+=" js";</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Murdoku: Viaje al pasado", "author": {"@type": "Person", "name": "Manuel Garand"}, "bookFormat": "https://schema.org/Paperback", "numberOfPages": 224, "inLanguage": "es", "publisher": "Ediciones Temas de Hoy", "isbn": "979-1388279119", "offers": {"@type": "Offer", "price": "17.00", "priceCurrency": "EUR", "url": "https://www.amazon.es/dp/B0H29QB982", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": 4.6, "reviewCount": 124, "bestRating": 5}}</script>
 </head>
@@ -191,8 +187,8 @@
   </div>
 </footer>
 
-<script defer src="lib/db.js?v=ce1f0cf32a"></script>
-<script defer src="main.js?v=ce1f0cf32a"></script>
+<script defer src="lib/db.js?v=cf3a7392f9"></script>
+<script defer src="main.js?v=cf3a7392f9"></script>
 <!-- Analitica desactivada: rellena ANALYTICS_TOKEN en tools/build_site.py -->
 </body>
 </html>

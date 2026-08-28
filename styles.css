@@ -41,9 +41,14 @@
   --shadow-book: 0 1px 1px rgba(20,22,28,.10), 0 10px 24px rgba(20,22,28,.16);
 
   /* Tipografía */
-  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --serif:   "Newsreader", Georgia, "Times New Roman", serif;
-  --sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* "Fraunces Repuesto" no es una letra nueva: es Georgia estirada al 85,24%
+     para que ocupe EXACTAMENTE lo mismo que Fraunces. Va entre la buena y el
+     resto, asi que si la buena tarda un instante en llegar, el texto se pinta
+     con la de repuesto ajustada y al cambiar no se mueve ni un pixel.
+     Se define en fuentes.css. Sin ella, la pagina pegaba un salto al cargar. */
+  --display: "Fraunces", "Fraunces Repuesto", "Iowan Old Style", Georgia, serif;
+  --serif:   "Newsreader", "Newsreader Repuesto", Georgia, "Times New Roman", serif;
+  --sans:    "Inter", "Inter Repuesto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Ritmo */
   --gutter: clamp(1.15rem, 4vw, 2.5rem);
@@ -286,6 +291,12 @@ a:hover > .cover::before, .book-card:hover .cover::before { opacity: 1; }
 .book-card h3 {
   font-size: 1.03rem; line-height: 1.28; font-family: var(--display);
   font-variation-settings: "SOFT" 6; margin-bottom: .2rem;
+  /* Hueco reservado para DOS lineas aunque el titulo ocupe una. Los titulos van
+     de 6 a 44 caracteres, asi que unos ocupan una linea y otros dos o tres. Sin
+     esta reserva, al cambiar de tipografia un titulo podia pasar de una linea a
+     dos y empujar hacia abajo todo lo que tenia debajo. Ademas iguala la altura
+     de las tarjetas de una misma fila, que se veian descuadradas. */
+  min-height: calc(2 * 1.28em);
 }
 .book-card .author { font-size: .84rem; color: var(--ink-mute); margin-bottom: .5rem; }
 .book-card .card-foot {
