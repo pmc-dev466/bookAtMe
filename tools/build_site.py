@@ -269,13 +269,21 @@ def guia_json(clave):
 #
 # Cloudflare Web Analytics NO usa cookies ni guarda datos personales, asi que
 # esta web SIGUE sin necesitar banner de consentimiento.
-ANALYTICS_TOKEN = ""
+ANALYTICS_TOKEN = "f51a27e7dca14c579b07a648ca261a5f"
 
 def analitica():
     if not ANALYTICS_TOKEN:
         return "<!-- Analitica desactivada: rellena ANALYTICS_TOKEN en tools/build_site.py -->"
-    return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
-            'data-cf-beacon=%s></script>' % json.dumps(json.dumps({"token": ANALYTICS_TOKEN})))
+    # type="module" y no defer: Cloudflare sirve el beacon como modulo ES y es
+    # asi como lo da su panel. Un modulo ya se aplaza solo, no bloquea la pagina.
+    # El atributo va entre COMILLAS SIMPLES, con el JSON dentro tal cual. Es como
+    # lo da Cloudflare y no es un capricho: con comillas dobles habria que escapar
+    # las de dentro, y en HTML la barra invertida NO escapa nada. El navegador
+    # leeria {\"token\": ...} con las barras incluidas, Cloudflare no sabria
+    # interpretarlo y la analitica no contaria ni una visita, en silencio.
+    assert "'" not in ANALYTICS_TOKEN, 'el identificador no puede llevar comillas'
+    return ('<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" '
+            "data-cf-beacon='%s'></script>" % json.dumps({"token": ANALYTICS_TOKEN}))
 
 def barra_afiliados():
     return ('<div class="aff-bar">Como afiliados de Amazon, ganamos una comisión por las compras que cumplen los requisitos. '
