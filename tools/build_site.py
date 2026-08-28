@@ -263,13 +263,20 @@ def guia_json(clave):
     return ('<script type="application/json" id="guia-pasos">%s</script>'
             % json.dumps(datos, ensure_ascii=False))
 
-# El identificador de Cloudflare Web Analytics. Se saca del panel de Cloudflare:
-# Analytics & Logs -> Web Analytics -> Add a site. Es una cadena de 32 caracteres.
-# Mientras este vacio la web no carga ninguna analitica, y no da ningun error.
+# VACIO A PROPOSITO. NO LO RELLENES.
 #
-# Cloudflare Web Analytics NO usa cookies ni guarda datos personales, asi que
-# esta web SIGUE sin necesitar banner de consentimiento.
-ANALYTICS_TOKEN = "f51a27e7dca14c579b07a648ca261a5f"
+# La analitica YA ESTA FUNCIONANDO, pero no desde aqui: esta activada en los
+# ajustes del proyecto en Cloudflare Pages, y Cloudflare inyecta el codigo el
+# solo en cada pagina que sirve. Por eso el identificador que se ve en la web
+# publicada no aparece en ningun archivo de este proyecto.
+#
+# Si pones un identificador aqui, la pagina acabara con DOS analiticas y cada
+# visita se contara dos veces, repartida entre dos paneles distintos. Ya paso
+# una vez. Los numeros salen inflados y no avisa nadie.
+#
+# Para ver las visitas: Cloudflare -> Analytics -> Web Analytics.
+# No usa cookies, asi que esta web sigue sin necesitar banner de consentimiento.
+ANALYTICS_TOKEN = ""
 
 def analitica():
     if not ANALYTICS_TOKEN:
